@@ -5,15 +5,18 @@
 
 
 function deleteUser(id) {
-  return fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-    method: 'DELETE'
+ const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+
+  return fetch(url, {
+    method: 'DELETE',
   })
-    .then(response => {
-      return response.status;
-    })
-    .catch(error => {
-      console.error('Error deleting user:', error);
-    });
+  .then(response => {
+    return response;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    throw error;
+  });
 }
 
 console.log(deleteUser(1));
